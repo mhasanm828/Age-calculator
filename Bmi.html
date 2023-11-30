@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic BMI Calculator</title>
+    
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+
+    <style>
+        body {
+            background-color: #f0f0f0;
+        }
+
+        .container {
+            background-color: #fff;
+            border-radius: 10px;
+            padding: 10px;
+            margin-top: 10px;
+        }
+
+        .btn-primary {
+            background-color: #007bff;
+        }
+
+        .btn-primary:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body style="text-align: center;">
+    <div class="container mt-5">
+      <marquee style="padding: 10px; background: gray; color: yellowgreen;" behavior="" direction="top"> প্রথমে উচ্চতাটা সেন্টিমিটারে নিয়ে নিন । </marquee>
+        <h1>Feet and Inches to Centimeters Converter</h1>
+        <div class="input-group">
+            <span class="input-group-text">Feet:</span>
+            <input type="number" id="feet" class="form-control">
+            <span class="input-group-text">Inches:</span>
+            <input type="number" id="inches" class="form-control">
+        </div>
+        <button class="btn btn-primary mt-3" onclick="convertToCm()">Convert</button>
+        <p id="result" class="mt-3"></p>
+    </div>
+
+    <div class="container mt-5">
+        <h1> BMI Calculator</h1>
+        <div class="row mt-4">
+            <div class="col-md-6">
+        <div class="input-group">
+            <span class="input-group-text">Weight-kg</span>
+            <input type="number" id="weight" class="form-control">
+            <span class="input-group-text">Height-cm</span>
+            <input type="number" id="height" class="form-control">
+        </div>
+        <div class="mt-3">
+            <button class="btn btn-primary" id="calculate">Calculate BMI</button>
+        </div>
+        <div class="mt-3">
+            <h3>Your BMI: <span id="bmiResult"></span></h3>
+        </div>
+    </div>
+            <div>  <br>
+        <h1 style="text-align: center; padding:10px; background:#7FFFD4;"> Made By <a style="text-decoration:none; color: #f02;" href="https://api.whatsapp.com/send/?phone=8801723477809&text&type=phone_number&app_absent=0" > Hasan</a>
+        <br>
+        </div>
+        
+        
+               <div> <br>
+                 <h1 style="text-align: center; padding:10px; backround:#7FFFD4;"> <a style="text-decoration:none; color: #f02;" href="https://mhasanm828.github.io/Tools/"> Tools Page </a>
+                   <br>
+               </div>
+
+    <script>
+        function convertToCm() {
+            const feet = parseFloat(document.getElementById("feet").value);
+            const inches = parseFloat(document.getElementById("inches").value);
+
+            if (!isNaN(feet) && !isNaN(inches)) {
+                const totalInches = (feet * 12) + inches;
+                const centimeters = totalInches * 2.54;
+                document.getElementById("result").textContent = `Centimeters: ${centimeters.toFixed(2)} cm`;
+            } else {
+                document.getElementById("result").textContent = "Please enter valid values for feet and inches.";
+            }
+        }
+
+        document.getElementById('calculate').addEventListener('click', function() {
+            const weight = parseFloat(document.getElementById('weight').value);
+            const height = parseFloat(document.getElementById('height').value) / 100; // Convert height to meters
+
+            if (!isNaN(weight) && !isNaN(height)) {
+                const bmi = weight / (height * height);
+                document.getElementById('bmiResult').textContent = bmi.toFixed(2);
+            } else {
+                document.getElementById('bmiResult').textContent = "Invalid input";
+            }
+        });
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+</body>
+</html>
