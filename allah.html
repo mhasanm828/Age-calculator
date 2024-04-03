@@ -608,6 +608,11 @@
       numberElement.classList.add('number');
       numberElement.textContent = `${index + 1}.`;
 
+      
+       const nameArabicElement = document.createElement('div');
+      nameArabicElement.classList.add('name_arabic');
+      nameArabicElement.textContent = `Arabic Name: ${name.name_arabic}`;
+      
       const nameElement = document.createElement('div');
       nameElement.classList.add('name');
       nameElement.textContent = name.name_bangla;
@@ -620,9 +625,7 @@
       virtueElement.classList.add('virtue');
       virtueElement.textContent = `Virtue: ${name.virtue}`;
 
-      const nameArabicElement = document.createElement('div');
-      nameArabicElement.classList.add('name_arabic');
-      nameArabicElement.textContent = `Arabic Name: ${name.name_arabic}`;
+     
 
       nameCard.appendChild(numberElement);
       nameCard.appendChild(nameElement);
